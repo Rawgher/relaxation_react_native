@@ -1,13 +1,11 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View } from "react-native";
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from "react-native";
 
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
@@ -21,9 +19,10 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to my app!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <TouchableOpacity style={styles.button}>
+          <Text>I'm a button, click me!</Text>
+        </TouchableOpacity>
+        <Text style={styles.readyText}>I'm ready to chill...</Text>
       </View>
     );
   }
@@ -36,15 +35,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#161737"
   },
-  welcome: {
+  readyText: {
     fontSize: 20,
-    textAlign: "center",
-    margin: 10,
-    color: "#ffffff"
+    fontStyle: "italic",
+    color: "#fff"
   },
-  instructions: {
-    textAlign: "center",
-    color: "#dbdbdb",
-    marginBottom: 5
+  button: {
+    backgroundColor: "#859a9b",
+    borderRadius: 20,
+    padding: 10,
+    marginBottom: 20,
+    shadowColor: "#303838",
+    shadowOffset: { width: 0, height: 5 },
+    shadowRadius: 10,
+    shadowOpacity: 0.35
   }
 });
