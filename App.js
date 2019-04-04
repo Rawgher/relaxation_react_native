@@ -1,12 +1,6 @@
 import React, { Component } from "react";
-import {
-  Image,
-  Platform,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View
-} from "react-native";
+import { Platform, StyleSheet, View } from "react-native";
+import Quote from "./Quote";
 
 const chillImage = require("./assets/beach.png");
 
@@ -22,13 +16,14 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.button}
           onPress={() => alert("you did it")}
         >
           <Image source={chillImage} style={styles.buttonImage} />
         </TouchableOpacity>
-        <Text style={styles.readyText}>I'm ready to chill...</Text>
+        <Text style={styles.readyText}>I'm ready to chill...</Text> */}
+        <Quote quoteText="what?" quoteSource=" -- This guy" />
       </View>
     );
   }
@@ -39,7 +34,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#161737"
+    backgroundColor: "#efefef"
   },
   readyText: {
     fontSize: 20,
