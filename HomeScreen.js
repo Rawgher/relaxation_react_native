@@ -23,7 +23,7 @@ class HomeScreen extends Component {
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => alert("you did it")}
+          onPress={() => this.props.navigation.navigate("Quotes")}
         >
           <Image source={chillImage} style={styles.buttonImage} />
         </TouchableOpacity>
