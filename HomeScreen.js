@@ -1,8 +1,14 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet } from "react-native";
-import { createAppContainer, createStackNavigator } from "react-navigation";
-import HomeScreen from "./HomeScreen";
-import QuoteScreen from "./QuoteScreen";
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from "react-native";
+
+const chillImage = require("./assets/beach.png");
 
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
@@ -11,23 +17,23 @@ const instructions = Platform.select({
     "Shake or press menu button for dev menu"
 });
 
-export default class App extends Component {
+class HomeScreen extends Component {
   render() {
-    return <AppContainer />;
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => alert("you did it")}
+        >
+          <Image source={chillImage} style={styles.buttonImage} />
+        </TouchableOpacity>
+        <Text style={styles.readyText}>I'm ready to chill...</Text>
+      </View>
+    );
   }
 }
 
-const AppNavigator = createStackNavigator(
-  {
-    Home: HomeScreen,
-    Quotes: QuoteScreen
-  },
-  {
-    initialRouteName: "Home"
-  }
-);
-
-const AppContainer = createAppContainer(AppNavigator);
+export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
