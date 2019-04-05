@@ -4,7 +4,7 @@ import { Platform, StyleSheet, Text, View } from "react-native";
 class Quote extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.quoteContainer}>
         <Text style={styles.quoteText}>"{this.props.quoteText}"</Text>
         <Text style={styles.sourceText}>- {this.props.quoteSource}</Text>
       </View>
@@ -13,6 +13,10 @@ class Quote extends Component {
 }
 
 const styles = StyleSheet.create({
+  quoteContainer: {
+    flex: 1,
+    justifyContent: "center"
+  },
   quoteText: {
     fontFamily: Platform.OS === "ios" ? "AvenirNext-Bold" : "Roboto",
     fontSize: 30,

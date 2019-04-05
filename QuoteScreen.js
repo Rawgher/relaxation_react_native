@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ImageBackground, Platform, StyleSheet, View } from "react-native";
+import QuoteButton from "./NextQuoteButton";
 import Quote from "./Quote";
 
 const bgImg = require("./assets/cool_sky.jpg");
@@ -13,12 +14,46 @@ const instructions = Platform.select({
 });
 
 class QuoteScreen extends Component {
+  static navigationOptions = {
+    headerStyle: {
+      backgroundColor: "#2980B9",
+      shadowColor: "transparent",
+      borderBottomWidth: 0,
+      elevation: 0
+    }
+  };
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      quoteIndex: 0
+    };
+
+    this._incrementQuoteIndex = this._incrementQuoteIndex.bind(this);
+  }
+
+  _incrementQuoteIndex() {
+    let newIndex;
+
+    if (this.state.quoteIndex + 1 === quotes.length) {
+      newIndex = 0;
+    } else {
+      newIndex = this.state.quoteIndex + 1;
+    }
+
+    this.setState({
+      quoteIndex: newIndex
+    });
+  }
+
   render() {
-    const quote = quotes[2];
+    const quote = quotes[this.state.quoteIndex];
     return (
       <ImageBackground source={bgImg} style={styles.backgroundContainer}>
         <View style={styles.container}>
           <Quote quoteText={quote.text} quoteSource={quote.source} />
+          <QuoteButton onNextQuotePress={this._incrementQuoteIndex} />
         </View>
       </ImageBackground>
     );

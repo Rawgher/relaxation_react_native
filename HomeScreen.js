@@ -18,6 +18,14 @@ const instructions = Platform.select({
 });
 
 class HomeScreen extends Component {
+  static navigationOptions = {
+    headerStyle: {
+      backgroundColor: "#889dad",
+      shadowColor: "transparent",
+      borderBottomWidth: 0,
+      elevation: 0
+    }
+  };
   render() {
     return (
       <View style={styles.container}>
