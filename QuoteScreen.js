@@ -50,7 +50,8 @@ class QuoteScreen extends Component {
       backgroundColor: "#2980B9",
       shadowColor: "transparent",
       borderBottomWidth: 0,
-      elevation: 0
+      elevation: 0,
+      shadowRadius: 0
     }
   };
 

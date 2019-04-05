@@ -23,7 +23,8 @@ class HomeScreen extends Component {
       backgroundColor: "#889dad",
       shadowColor: "transparent",
       borderBottomWidth: 0,
-      elevation: 0
+      elevation: 0,
+      shadowRadius: 0
     }
   };
   render() {
