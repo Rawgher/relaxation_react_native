@@ -1,6 +1,9 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, View } from "react-native";
+import { ImageBackground, Platform, StyleSheet, View } from "react-native";
 import Quote from "./Quote";
+
+const bgImg = require("./assets/cool_sky.jpg");
+const { quotes } = require("./quotes.json");
 
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
@@ -11,10 +14,13 @@ const instructions = Platform.select({
 
 class QuoteScreen extends Component {
   render() {
+    const quote = quotes[2];
     return (
-      <View style={styles.container}>
-        <Quote quoteText="what?" quoteSource=" -- This guy" />
-      </View>
+      <ImageBackground source={bgImg} style={styles.backgroundContainer}>
+        <View style={styles.container}>
+          <Quote quoteText={quote.text} quoteSource={quote.source} />
+        </View>
+      </ImageBackground>
     );
   }
 }
@@ -22,10 +28,16 @@ class QuoteScreen extends Component {
 export default QuoteScreen;
 
 const styles = StyleSheet.create({
+  backgroundContainer: {
+    flex: 1,
+    resizeMode: "cover",
+    width: undefined,
+    height: undefined
+  },
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#efefef"
+    margin: 15
   }
 });

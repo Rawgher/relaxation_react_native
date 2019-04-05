@@ -26,8 +26,8 @@ class HomeScreen extends Component {
           onPress={() => this.props.navigation.navigate("Quotes")}
         >
           <Image source={chillImage} style={styles.buttonImage} />
+          <Text style={styles.readyText}>I'm ready to chill...</Text>
         </TouchableOpacity>
-        <Text style={styles.readyText}>I'm ready to chill...</Text>
       </View>
     );
   }
@@ -40,22 +40,21 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#efefef"
+    backgroundColor: "#889dad"
   },
   readyText: {
-    fontSize: 20,
+    fontSize: 22,
     fontStyle: "italic",
-    color: "#fff"
+    color: "#040404",
+    marginTop: 20,
+    paddingLeft: 15,
+    alignItems: "center"
   },
   button: {
-    backgroundColor: "#859a9b",
+    backgroundColor: "#889dad",
     borderRadius: 20,
     padding: 10,
-    marginBottom: 20,
-    shadowColor: "#303838",
-    shadowOffset: { width: 0, height: 5 },
-    shadowRadius: 10,
-    shadowOpacity: 0.35
+    marginBottom: 20
   },
   buttonImage: {
     width: 200,
